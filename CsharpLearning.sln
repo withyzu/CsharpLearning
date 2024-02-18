@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoCRUD.Client", "DemoCRUD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DemoCRUD", "DemoCRUD", "{716D011B-E07F-4B81-AA14-CE9F32D2DA8A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleBlazorApps", "MultipleBlazorApps\MultipleBlazorApps\MultipleBlazorApps.csproj", "{B28BB472-EB86-4862-BD0B-A9FD41F52CCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleBlazorApps.Client", "MultipleBlazorApps\MultipleBlazorApps.Client\MultipleBlazorApps.Client.csproj", "{4B6486DD-7A1D-4BDB-B83A-6816F5B97E76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,14 @@ Global
 		{ACF9D9FC-7E2D-41E0-A40C-AC55E3CA763C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACF9D9FC-7E2D-41E0-A40C-AC55E3CA763C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACF9D9FC-7E2D-41E0-A40C-AC55E3CA763C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B28BB472-EB86-4862-BD0B-A9FD41F52CCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B28BB472-EB86-4862-BD0B-A9FD41F52CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B28BB472-EB86-4862-BD0B-A9FD41F52CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B28BB472-EB86-4862-BD0B-A9FD41F52CCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B6486DD-7A1D-4BDB-B83A-6816F5B97E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B6486DD-7A1D-4BDB-B83A-6816F5B97E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B6486DD-7A1D-4BDB-B83A-6816F5B97E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B6486DD-7A1D-4BDB-B83A-6816F5B97E76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
