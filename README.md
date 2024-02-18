@@ -1,6 +1,7 @@
 Title：在 Blazor App Auto 模式中 [增删改查 | 数据库操作 | CRUD] & EF-Core
 Title：CRUD Unleashed- Dominate .NET 8 Blazor with Auto Render Magic, Entity Framework Wizardry, SQL Server
-Video Link：https://www.bilibili.com/video/BV1Xb4y1A7J8
 
-Onenote Link:https://1drv.ms/u/s!AtX8jHzRtu25gwRm8ICWdS6TqtBx?wd=target%28bazlor.one%7CAAF7DA12-E6DF-486A-899F-163EB01E1F02%2FCRUD%20%26%20EF-Core%7C8D75D1D0-84D5-4F83-820D-A0C6393704D0%2F%29
-onenote:https://d.docs.live.net/b9edb6d17c8cfcd5/文档/编程/bazlor.one#CRUD%20%20EF-Core&section-id={AAF7DA12-E6DF-486A-899F-163EB01E1F02}&page-id={8D75D1D0-84D5-4F83-820D-A0C6393704D0}&end
+Video Link：https://www.bilibili.com/video/BV1Xb4y1A7J8
+			https://youtu.be/zv2gdqxZmFs
+
+Onenote Link：https://onedrive.live.com/redir?resid=B9EDB6D17C8CFCD5%21388&authkey=%21AGbwgJZ1LpOq0HE&page=View&wd=target%28bazlor.one%7C28b68b79-75b6-493b-add0-518bed151680%2FCRUD%20%20EF-Core%7C8d75d1d0-84d5-4f83-820d-a0c6393704d0%2F%29&wdorigin=703
