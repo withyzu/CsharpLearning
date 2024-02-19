@@ -1,7 +1,7 @@
 ﻿using DemoCRUD.Data;
 using Microsoft.EntityFrameworkCore;
-using SharedLibrary.Models;
-using SharedLibrary.Repositories;
+using DemoCRUD.SharedLibrary.Models;
+using DemoCRUD.SharedLibrary.Repositories;
 
 namespace DemoCRUD.Implementations;
 public class ProductRepository(AppDbContext appDbContext) : IProductRepository {

@@ -1,5 +1,5 @@
-﻿using SharedLibrary.Models;
-using SharedLibrary.Repositories;
+﻿using DemoCRUD.SharedLibrary.Models;
+using DemoCRUD.SharedLibrary.Repositories;
 using System.Net.Http.Json;
 
 namespace DemoCRUD.Client.Services;

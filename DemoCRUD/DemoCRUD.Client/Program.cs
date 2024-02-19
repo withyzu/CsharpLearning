@@ -1,6 +1,6 @@
 using DemoCRUD.Client.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using SharedLibrary.Repositories;
+using DemoCRUD.SharedLibrary.Repositories;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.Services.AddScoped<IProductRepository, ProductService>();

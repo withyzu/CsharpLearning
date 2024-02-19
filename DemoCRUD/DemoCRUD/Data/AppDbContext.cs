@@ -1,7 +1,7 @@
 ﻿// Ignore Spelling: App
 
+using DemoCRUD.SharedLibrary.Models;
 using Microsoft.EntityFrameworkCore;
-using SharedLibrary.Models;
 
 namespace DemoCRUD.Data;
 public class AppDbContext : DbContext {

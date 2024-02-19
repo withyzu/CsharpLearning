@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SharedLibrary.Models;
-using SharedLibrary.Repositories;
+using DemoCRUD.SharedLibrary.Models;
+using DemoCRUD.SharedLibrary.Repositories;
 
 namespace DemoCRUD.Controllers;
 [Route("api/[controller]")]
