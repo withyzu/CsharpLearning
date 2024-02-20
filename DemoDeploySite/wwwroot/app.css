@@ -1,20 +1,54 @@
-/*
+﻿/*
 	This CSS file matches the color scheme from MudBlazor to Bootstrap when utilized for authentication.
 	The file remains available at all times for demonstration purposes,
 	but it is exclusively employed in the 'App.razor' component when authentication is enabled.
 */
-
 .btn-primary {
-    text-transform: uppercase;
-    --bs-btn-bg: var(--mud-palette-primary) !important;
-    --bs-btn-hover-bg: var(--mud-palette-primary-darken) !important;
+  text-transform: uppercase;
+  --bs-btn-bg: var(--mud-palette-primary) !important;
+  --bs-btn-hover-bg: var(--mud-palette-primary-darken) !important;
 }
-
 .nav-pills {
-    --bs-nav-pills-link-active-bg: var(--mud-palette-primary) !important;
+  --bs-nav-pills-link-active-bg: var(--mud-palette-primary) !important;
 }
-
 .nav {
-    --bs-nav-link-color: var(--mud-palette-primary) !important;
-    --bs-nav-link-hover-color: var(--mud-palette-primary-darken) !important;
+  --bs-nav-link-color: var(--mud-palette-primary) !important;
+  --bs-nav-link-hover-color: var(--mud-palette-primary-darken) !important;
+}
+/*-------------------------Modify Mudblazor--------------*/
+/* #region widht */
+.w-full {
+  width: 100%;
+}
+.w-auto {
+  width: auto;
+}
+.w-max-content {
+  width: max-content;
+}
+/* #endregion */
+/* #region  height*/
+.h-full {
+  height: 100%;
+}
+.h-auto {
+  height: auto;
+}
+/* #endregion */
+.b-r {
+  border-radius: 4px;
+}
+@keyframes animateName {
+  from {
+    width: 50px;
+    height: 50px;
+  }
+  50% {
+    width: 100px;
+    height: 100px;
+  }
+  to {
+    width: 50px;
+    height: 50px;
+  }
 }

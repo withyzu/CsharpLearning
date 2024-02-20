@@ -1,17 +1,106 @@
-﻿<MudNavMenu>
-    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
-    <MudNavLink Href="counter" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Add">Counter</MudNavLink>
-    <MudNavLink Href="weather" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Weather</MudNavLink>
-	<MudNavLink Href="auth" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Auth Required</MudNavLink>
+﻿<NavLink class="flex-none" Href="/" Match="NavLinkMatch.Prefix">
+    <MudImage Class="absolute"
+              Src="/HomeHeaderImg.png" Alt="给凌波丽"
+              Style="width:9rem; left:1rem; top:1rem; filter: drop-shadow(-15px -10px 3px #5d6b9950)" />
+    <MudButton Class="h-full w-max-content z-90"
+               Variant="Variant.Text"
+               Color="Color.Info"
+               IconColor="Color.Info"
+               StartIcon="@Icons.Material.Outlined.Grid4x4">
+        <span>Home</span>
+    </MudButton>
+</NavLink>
 
-	<AuthorizeView>
-		<Authorized>
-			<MudNavLink Href="Account/Manage" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">@context.User.Identity?.Name</MudNavLink>
-		</Authorized>
-		<NotAuthorized>
-			<MudNavLink Href="Account/Register" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Register</MudNavLink>
-			<MudNavLink Href="Account/Login" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Login</MudNavLink>
-		</NotAuthorized>
-	</AuthorizeView>
+@foreach (var nli in customNLI) {
 
-</MudNavMenu>
+    <NavLink class="w-auto flex-1" Href="@nli.Href" Match="nli.Match">
+        <MudButton Class="h-full w-full"
+                   Variant="Variant.Text"
+                   Color=@nli.Color
+                   IconColor="@nli.Color"
+                   StartIcon="@nli.Icon">
+            <span>@nli.Name</span>
+        </MudButton>
+    </NavLink>
+}
+
+<AuthorizeView>
+    <Authorized>
+
+        <NavLink class="w-auto" Match="NavLinkMatch.Prefix">
+            <MudButton Class="w-full h-full"
+                       Variant="Variant.Text"
+                       Color=Color.Info
+                       IconColor=Color.Info
+                       StartIcon=@Icons.Material.Outlined.SpatialAudio
+                       Href="auth">
+                <span>Auth Required</span>
+            </MudButton>
+        </NavLink>
+
+        <NavLink class="w-auto" Match="NavLinkMatch.Prefix">
+            <MudButton Class="w-full h-full"
+                       Variant="Variant.Text"
+                       Color=Color.Primary
+                       IconColor=Color.Primary
+                       StartIcon=@Icons.Material.Filled.GridView
+                       Href="Account/Manage">
+                <span>@context.User.Identity?.Name</span>
+            </MudButton>
+        </NavLink>
+
+        <NavLink class="w-auto" Match="NavLinkMatch.Prefix">
+            <MudButton Class="w-full h-full"
+                       Variant="Variant.Text"
+                       Color=Color.Primary
+                       IconColor=Color.Primary
+                       StartIcon=@Icons.Material.Filled.HowToReg
+                       Href="Account/Register">
+                <span>Register</span>
+            </MudButton>
+        </NavLink>
+
+    </Authorized>
+    <NotAuthorized>
+
+        <NavLink class="flex-none" Href="Account/Login" Match="NavLinkMatch.Prefix">
+            <MudButton Class="h-full w-max-content"
+                       Variant="Variant.Text"
+                       Color=Color.Tertiary
+                       IconColor=Color.Tertiary
+                       StartIcon=@Icons.Material.Filled.Login>
+                <span>Login</span>
+            </MudButton>
+        </NavLink>
+
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    List<NavigationLinkInfo> customNLI = new();
+
+    protected override void OnInitialized() {
+        customNLI.Add(new NavigationLinkInfo(href: "img-manager",
+                                             name: "Img",
+                                             Icon: Icons.Material.Outlined.PhotoLibrary,
+                                             match: NavLinkMatch.All,
+                                             color: Color.Warning));
+    }
+
+    public class NavigationLinkInfo {
+
+        public NavigationLinkInfo(string href, string name, string Icon, NavLinkMatch match, MudBlazor.Color color) {
+            this.Href = href;
+            this.Name = name;
+            this.Icon = Icon;
+            this.Match = match;
+            this.Color = color;
+        }
+
+        public string Href { get; set; } = "";
+        public string Name { get; set; } = "";
+        public string Icon { get; set; } = Icons.Material.Outlined.DisabledByDefault;
+        public NavLinkMatch Match { get; set; } = NavLinkMatch.Prefix;
+        public MudBlazor.Color Color { get; set; } = MudBlazor.Color.Primary;
+    }
+}
