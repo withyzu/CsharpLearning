@@ -1,8 +1,4 @@
-﻿/*
-	This CSS file matches the color scheme from MudBlazor to Bootstrap when utilized for authentication.
-	The file remains available at all times for demonstration purposes,
-	but it is exclusively employed in the 'App.razor' component when authentication is enabled.
-*/
+﻿/* #region MudBlazor Source */
 .btn-primary {
     text-transform: uppercase;
     --bs-btn-bg: var(--mud-palette-primary) !important;
@@ -17,13 +13,154 @@
     --bs-nav-link-color: var(--mud-palette-primary) !important;
     --bs-nav-link-hover-color: var(--mud-palette-primary-darken) !important;
 }
+/* #endregion */
 
+@max-9999px: (max-width: 9999px);
+@max-1840px: (max-width: 1840px);
+@max-1240px: (max-width: 1240px);
+@max-640px: (max-width: 640px);
 
+@transition-600ms: 600ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
-a.active {
+@nav-link-default-width-1th: 3rem;
+@nav-link-default-width-2th: 6rem;
+@nav-link-default-width-3th: 9rem;
+@nav-link-default-width-4th: 12rem;
+/* #region About NavLink */
+.nav-link-default {
+    & {
+        @media @max-9999px {
+            width: @nav-link-default-width-4th;
+            min-width: @nav-link-default-width-4th;
+        }
+
+        @media @max-1840px {
+            width: @nav-link-default-width-3th;
+            min-width: @nav-link-default-width-3th;
+        }
+
+        @media @max-1240px {
+            width: @nav-link-default-width-2th;
+            min-width: @nav-link-default-width-2th;
+        }
+
+        @media @max-640px {
+            width: @nav-link-default-width-1th;
+            min-width: @nav-link-default-width-1th;
+        }
+
+        transition: width @transition-600ms, min-width @transition-600ms;
+    }
+
+    min-width: min-content;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    & {
+        & button.mud-button {
+            .w-full();
+            .h-full();
+        }
+    }
+
+    &.active {
+        & button.mud-button {
+            background: #ffd80040;
+        }
+    }
+
+    span.nav-link-text {
+        display: flex;
+        overflow: hidden;
+        width: max-content;
+        opacity: 1;
+        transition: width @transition-600ms, opacity @transition-600ms;
+
+        @media @max-640px {
+            width: 0rem;
+            opacity: 0;
+            transition: width @transition-600ms, opacity @transition-600ms;
+        }
+    }
+
+    & span.mud-button-icon-start.mud-button-icon-size-medium {
+        @media @max-640px {
+            margin: 0rem;
+            transition: margin @transition-600ms;
+        }
+    }
 }
 
-/*-------------------------Modify Mudblazor--------------*/
+header {
+    position: relative;
+
+    & * {
+        .user-select();
+    }
+
+    &:before {
+        @media @max-9999px {
+            width: @nav-link-default-width-4th;
+            min-width: @nav-link-default-width-4th;
+        }
+
+        @media @max-1840px {
+            width: @nav-link-default-width-3th;
+            min-width: @nav-link-default-width-3th;
+        }
+
+        @media @max-1240px {
+            width: @nav-link-default-width-2th;
+            min-width: @nav-link-default-width-2th;
+        }
+
+        @media @max-640px {
+            width: @nav-link-default-width-1th;
+            min-width: @nav-link-default-width-1th;
+        }
+    }
+
+    .header-before-style(@nthoftype-var) when (@nthoftype-var >= 0) {
+        &:hover:has(.nav-link-default:nth-of-type(@{nthoftype-var}):hover) {
+            &:before {
+                content: '';
+                position: absolute;
+                opacity: 1;
+                display: block;
+                height: 0.15rem;
+                bottom: 0rem;
+                border-radius: 4px;
+                background-color: rgba(255, 0, 0, 0.3);
+                transition: all @transition-600ms;
+
+                @media @max-9999px {
+                    transform: translate(@nav-link-default-width-4th * (@nthoftype-var - 1));
+                }
+
+                @media @max-1840px {
+                    transform: translate(@nav-link-default-width-3th * (@nthoftype-var - 1));
+                }
+
+                @media @max-1240px {
+                    transform: translate(@nav-link-default-width-2th * (@nthoftype-var - 1));
+                }
+
+                @media @max-640px {
+                    transform: translate(@nav-link-default-width-1th * (@nthoftype-var - 1));
+                }
+            }
+        }
+
+        .header-before-style(@nthoftype-var - 1);
+    }
+
+    .header-before-style(3);
+}
+/* #endregion */
+/* #region Custom Generic Styles */
 /* #region widht */
 .w-full {
     width: 100%;
@@ -33,11 +170,10 @@ a.active {
     width: auto;
 }
 
-.w-max-content{
-    width:max-content
+.w-max-content {
+    width: max-content;
 }
 /* #endregion */
-
 /* #region  height*/
 .h-full {
     height: 100%;
@@ -46,26 +182,14 @@ a.active {
 .h-auto {
     height: auto;
 }
-
 /* #endregion */
 
-.b-r {
-    border-radius: 4px;
+.user-select {
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    user-drag: none;
 }
-
-@keyframes animateName {
-    from {
-        width: 50px;
-        height: 50px;
-    }
-
-    50% {
-        width: 100px;
-        height: 100px;
-    }
-
-    to {
-        width: 50px;
-        height: 50px;
-    }
-}
+/* #endregion */

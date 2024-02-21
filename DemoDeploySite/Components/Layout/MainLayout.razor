@@ -4,7 +4,15 @@
 <MyMudThemeProvider />
 
 <div>
-    <header class="d-flex px-3 py-3 w-100">
+    <rei-ayanami>
+    <NavLink class="absolute" Href="/" Match="NavLinkMatch.All">
+        <MudImage Class="absolute"
+                  Src="/HomeHeaderImg.png" Alt="给凌波丽"
+                  Style="width:9rem; left:1rem; top:1rem; filter: drop-shadow(-15px -10px 3px #5d6b9950)" />
+        </NavLink>
+    </rei-ayanami>
+
+    <header class="d-flex px-3 py-3 z-100">
         <NavMenu />
     </header>
 

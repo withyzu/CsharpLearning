@@ -1,25 +1,19 @@
-﻿<NavLink class="flex-none" Href="/" Match="NavLinkMatch.Prefix">
-    <MudImage Class="absolute"
-              Src="/HomeHeaderImg.png" Alt="给凌波丽"
-              Style="width:9rem; left:1rem; top:1rem; filter: drop-shadow(-15px -10px 3px #5d6b9950)" />
-    <MudButton Class="h-full w-max-content z-90"
-               Variant="Variant.Text"
+﻿<NavLink class="nav-link-default" Href="/" Match="NavLinkMatch.All">
+    <MudButton Variant="Variant.Text"
                Color="Color.Info"
                IconColor="Color.Info"
                StartIcon="@Icons.Material.Outlined.Grid4x4">
-        <span>Home</span>
+        <span class="nav-link-text">Home</span>
     </MudButton>
 </NavLink>
 
 @foreach (var nli in customNLI) {
-
-    <NavLink class="w-auto flex-1" Href="@nli.Href" Match="nli.Match">
-        <MudButton Class="h-full w-full"
-                   Variant="Variant.Text"
+    <NavLink class="nav-link-default" Href="@nli.Href">
+        <MudButton Variant="Variant.Text"
                    Color=@nli.Color
                    IconColor="@nli.Color"
                    StartIcon="@nli.Icon">
-            <span>@nli.Name</span>
+            <span class="nav-link-text">@nli.Name</span>
         </MudButton>
     </NavLink>
 }
@@ -63,13 +57,12 @@
     </Authorized>
     <NotAuthorized>
 
-        <NavLink class="flex-none" Href="Account/Login" Match="NavLinkMatch.Prefix">
-            <MudButton Class="h-full w-max-content"
-                       Variant="Variant.Text"
+        <NavLink class="nav-link-default" Href="Account/Login" Match="NavLinkMatch.Prefix">
+            <MudButton Variant="Variant.Text"
                        Color=Color.Tertiary
                        IconColor=Color.Tertiary
                        StartIcon=@Icons.Material.Filled.Login>
-                <span>Login</span>
+                <span class="nav-link-text">Login</span>
             </MudButton>
         </NavLink>
 
@@ -77,30 +70,32 @@
 </AuthorizeView>
 
 @code {
-    List<NavigationLinkInfo> customNLI = new();
-
-    protected override void OnInitialized() {
-        customNLI.Add(new NavigationLinkInfo(href: "img-manager",
-                                             name: "Img",
-                                             Icon: Icons.Material.Outlined.PhotoLibrary,
-                                             match: NavLinkMatch.All,
-                                             color: Color.Warning));
-    }
+    List<NavigationLinkInfo> customNLI = new() {
+        new NavigationLinkInfo(
+            href: "img-manager",
+            name: "Img",
+            Icon: Icons.Material.Outlined.PhotoLibrary,
+            color: Color.Warning)
+    };
 
     public class NavigationLinkInfo {
 
-        public NavigationLinkInfo(string href, string name, string Icon, NavLinkMatch match, MudBlazor.Color color) {
+        public string Href { get; set; }
+        public string Name { get; set; }
+        public string Icon { get; set; }
+        public NavLinkMatch Match { get; set; }
+        public MudBlazor.Color Color { get; set; }
+
+        public NavigationLinkInfo(string href = "",
+                                  string name = "",
+                                  string Icon = Icons.Material.Outlined.DisabledByDefault,
+                                  NavLinkMatch match = NavLinkMatch.Prefix,
+                                  MudBlazor.Color color = MudBlazor.Color.Primary) {
             this.Href = href;
             this.Name = name;
             this.Icon = Icon;
             this.Match = match;
             this.Color = color;
         }
-
-        public string Href { get; set; } = "";
-        public string Name { get; set; } = "";
-        public string Icon { get; set; } = Icons.Material.Outlined.DisabledByDefault;
-        public NavLinkMatch Match { get; set; } = NavLinkMatch.Prefix;
-        public MudBlazor.Color Color { get; set; } = MudBlazor.Color.Primary;
     }
 }
