@@ -1,0 +1,87 @@
+﻿@page "/upload"
+
+@inject ISnackbar Snackbar
+
+<PageTitle>Upload</PageTitle>
+
+
+<MudStack Style="width: 100%">
+    <MudFileUpload T="IReadOnlyList<IBrowserFile>"
+                   AppendMultipleFiles
+                   OnFilesChanged="OnInputFileChanged"
+                   Hidden="@false"
+                   InputClass="absolute mud-width-full mud-height-full overflow-hidden z-20"
+                   InputStyle="opacity:0; cursor:pointer;">
+        <ButtonTemplate>
+
+            <div style="border-radius: 0.5rem;
+                        border: dashed 2px #0074ff69;
+                        background: transparent;
+                        height: max-content;
+                        min-height:300px;
+                        overflow:hidden">
+                <MudText Style="display: block;
+                                text-indent:1rem;
+                                width: 100%;
+                                border-bottom: dashed 2px #0074ff69;
+                                padding: 0.2rem;"
+                         Typo="Typo.overline">Drag and drop files here or click</MudText>
+
+                @foreach (var file in fileNames) {
+                    <span>@file</span>
+                }
+            </div>
+
+            <MudToolBar DisableGutters="true"
+                        Class="relative d-flex justify-end gap-4 z-30">
+                <MudButton for="@context.Id"
+                           Variant="Variant.Outlined"
+                           Color="Color.Info"
+                           IconColor="Color.Info"
+                           StartIcon="@Icons.Material.TwoTone.FolderOpen">
+                    Open
+                </MudButton>
+
+                <MudButton Disabled="@(!fileNames.Any())"
+                           Variant="Variant.Outlined"
+                           Color="Color.Success"
+                           IconColor="Color.Success"
+                           StartIcon="@Icons.Material.TwoTone.UploadFile">
+                    Upload
+                </MudButton>
+
+                <MudButton Disabled="@(!fileNames.Any())"
+                           Variant="Variant.Outlined"
+                           Color="Color.Error"
+                           IconColor="Color.Error"
+                           StartIcon="@Icons.Material.TwoTone.CleaningServices">
+                    Clear
+                </MudButton>
+
+            </MudToolBar>
+        </ButtonTemplate>
+    </MudFileUpload>
+</MudStack>
+
+@code {
+    private readonly List<string> fileNames = new();
+    private long maxFileSie = 1024 * 1024 * 3; // represents 3MB
+    private int maxAllowedFiles = 10;
+    private List<string> error = new();
+
+    private async Task LoadFiles(InputFileChangeEventArgs e) {
+
+    }
+
+    private async Task Clear() {
+        fileNames.Clear();
+        await Task.Delay(100);
+    }
+
+    private void OnInputFileChanged(InputFileChangeEventArgs e) {
+        var files = e.GetMultipleFiles();
+        foreach (var file in files) {
+            fileNames.Add(file.Name);
+        }
+    }
+}

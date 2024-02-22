@@ -12,6 +12,20 @@
   --bs-nav-link-hover-color: var(--mud-palette-primary-darken) !important;
 }
 /* #endregion */
+rei-ayanami {
+  width: 12rem;
+  left: 1rem;
+  bottom: 1rem;
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+rei-ayanami * {
+  width: 100%;
+}
+rei-ayanami div img {
+  filter: drop-shadow(-15px -10px 3px #5d6b9950);
+}
 /* #region About NavLink */
 .nav-link-default {
   transition: width 600ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, min-width 600ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -105,6 +119,37 @@ header * {
   header:before {
     width: 3rem;
     min-width: 3rem;
+  }
+}
+header:hover:has(.nav-link-default:nth-of-type(4):hover):before {
+  content: '';
+  position: absolute;
+  opacity: 1;
+  display: block;
+  height: 0.15rem;
+  bottom: 0rem;
+  border-radius: 4px;
+  background-color: rgba(255, 0, 0, 0.3);
+  transition: all 600ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+@media (max-width: 9999px) {
+  header:hover:has(.nav-link-default:nth-of-type(4):hover):before {
+    transform: translate(36rem);
+  }
+}
+@media (max-width: 1840px) {
+  header:hover:has(.nav-link-default:nth-of-type(4):hover):before {
+    transform: translate(27rem);
+  }
+}
+@media (max-width: 1240px) {
+  header:hover:has(.nav-link-default:nth-of-type(4):hover):before {
+    transform: translate(18rem);
+  }
+}
+@media (max-width: 640px) {
+  header:hover:has(.nav-link-default:nth-of-type(4):hover):before {
+    transform: translate(9rem);
   }
 }
 header:hover:has(.nav-link-default:nth-of-type(3):hover):before {

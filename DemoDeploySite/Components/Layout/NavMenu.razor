@@ -59,8 +59,8 @@
 
         <NavLink class="nav-link-default" Href="Account/Login" Match="NavLinkMatch.Prefix">
             <MudButton Variant="Variant.Text"
-                       Color=Color.Tertiary
-                       IconColor=Color.Tertiary
+                       Color=Color.Info
+                       IconColor=Color.Info
                        StartIcon=@Icons.Material.Filled.Login>
                 <span class="nav-link-text">Login</span>
             </MudButton>
@@ -75,8 +75,16 @@
             href: "img-manager",
             name: "Img",
             Icon: Icons.Material.Outlined.PhotoLibrary,
-            color: Color.Warning)
+            color: Color.Warning),
+        new NavigationLinkInfo(
+            href: "upload",
+            name: "Upload",
+            Icon: @Icons.Material.Filled.FileUpload,
+            color: Color.Success)
     };
+
+
+
 
     public class NavigationLinkInfo {
 

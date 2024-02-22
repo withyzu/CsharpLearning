@@ -15,6 +15,26 @@
 }
 /* #endregion */
 
+rei-ayanami {
+    width: 12rem;
+    left: 1rem;
+    bottom: 1rem;
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+
+    & * {
+        width: 100%;
+    }
+
+    div img {
+        filter: drop-shadow(-15px -10px 3px #5d6b9950);
+    }
+}
+
+@nav-link-default-amount: 4;
+@transition-600ms: 600ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+/* #region About NavLink */
 @max-9999px: (max-width: 9999px);
 @max-1840px: (max-width: 1840px);
 @max-1240px: (max-width: 1240px);
@@ -26,7 +46,7 @@
 @nav-link-default-width-2th: 6rem;
 @nav-link-default-width-3th: 9rem;
 @nav-link-default-width-4th: 12rem;
-/* #region About NavLink */
+
 .nav-link-default {
     & {
         @media @max-9999px {
@@ -157,9 +177,10 @@ header {
         .header-before-style(@nthoftype-var - 1);
     }
 
-    .header-before-style(3);
+    .header-before-style(@nav-link-default-amount);
 }
 /* #endregion */
+
 /* #region Custom Generic Styles */
 /* #region widht */
 .w-full {
